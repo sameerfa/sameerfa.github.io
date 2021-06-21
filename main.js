@@ -9,24 +9,18 @@ const renderer = new THREE.WebGLRenderer({
 
 renderer.setPixelRatio( window.devicePixelRatio );
 renderer.setSize( window.innerWidth, window.innerHeight );
-camera.position.setZ(30)
-
-//Torus Shape
-const geometry = new THREE.TorusGeometry(10, 3, 16, 100);
-const material = new THREE.MeshStandardMaterial({ color: 0xFF6347 });
-const torus = new THREE.Mesh(geometry, material);
-//scene.add(torus)
+camera.position.setX(-50)
 
 //Point Light
 const pointLight = new THREE.PointLight(0xffffff)
-pointLight.position.set(5,5,5)
+pointLight.position.set(0,0,-50)
 //Ambient Light
 const ambientLight = new THREE.AmbientLight(0xffffff)
 scene.add(pointLight, ambientLight)
 
 //light and grid helper
 const lightHelper = new THREE.PointLightHelper(pointLight)
-const gridHelper = new THREE.GridHelper(200,50)
+const gridHelper = new THREE.GridHelper(50,50)
 //scene.add(lightHelper, gridHelper)
 
 //orbit controls
@@ -44,7 +38,7 @@ function addstar(){ //addstar function
   scene.add(star)
 }
 
-Array(200).fill().forEach(addstar) //randomly generating 200 random stars
+//Array(200).fill().forEach(addstar) //randomly generating 200 random stars
 
 //spacetexture
 const spaceTexture = new THREE.TextureLoader().load('bg.jpg')
@@ -56,17 +50,34 @@ const earthNormalTexture = new THREE.TextureLoader().load('earth_normal_texture.
 //earthShape
 const earth = new THREE.Mesh(
   new THREE.SphereGeometry(10, 32, 32, 100),
-  //new THREE.MeshBasicMaterial({ map: earthTexture } )
   new THREE.MeshStandardMaterial({
     map: earthTexture,
     normalMap: earthNormalTexture,
   })
 );
 scene.add(earth)
-
 earth.position.z = 0
 earth.position.setX(-10);
 
+//sun
+const sunTexture = new THREE.TextureLoader().load('sun-texture.jpg')
+const sun = new THREE.Mesh(
+  new THREE.SphereGeometry(545, 50, 50, 100),
+  new THREE.MeshStandardMaterial({ map: sunTexture, })
+);
+
+scene.add(sun)
+sun.position.setZ(-1500)
+//moon
+const moonTexture = new THREE.TextureLoader().load('moon-texture.jpg')
+const moon = new THREE.Mesh(
+  new THREE.SphereGeometry(3,32,32,100),
+  new THREE.MeshStandardMaterial({ map:moonTexture, })
+);
+scene.add(moon)
+moon.position.setZ(20)
+moon.position.setX(5)
+moon.position.setY(-5)
 
 
 function moveCamera(){
@@ -85,12 +96,14 @@ document.body.onscroll = moveCamera
 
 function animate(){
   requestAnimationFrame(animate);
-  torus.rotation.x += 0.01;
-  torus.rotation.y += 0.005;
-  torus.rotation.z += 0.01;
-
   earth.rotation.y += 0.005;
   earth.rotation.y += 0.0005
+
+  sun.rotation.x += 0.001;
+  sun.rotation.y += 0.001;
+  sun.rotation.z += 0.001;
+
+  moon.rotation.y += 0.01;
 
   controls.update();
 
