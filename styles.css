@@ -2,7 +2,7 @@
   width: 8px;
 }
 ::-webkit-scrollbar-track {
-  background: #bae8e8;
+  background: #272343;
 }
 ::-webkit-scrollbar-thumb {
   background: #888;
@@ -51,7 +51,7 @@ a {
   flex-direction: column;
   align-items: flex-start;
   justify-content: space-evenly;
-  padding: 50px;
+  padding: 30px;
 }
 
 .social-icons {
@@ -76,12 +76,12 @@ a {
 }
 
 .main {
-  padding: 50px;
+  padding: 30px;
   background: #e3f6f5;
 }
 
 .articles {
-  padding: 50px;
+  padding: 30px;
 }
 
 .articles h3 {

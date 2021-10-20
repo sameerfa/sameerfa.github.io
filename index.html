@@ -258,37 +258,9 @@
     <div id="bg2" class="hero">
       <span class="name">
         <h3>Get in touch!</h3>
-        <p>
-          Actions are louder than ideas. Let's work together and build something
-          epic.
-        </p>
+        <p>Actions are louder than ideas.</p>
       </span>
-      <form>
-        <input
-          type="text"
-          class="textbox"
-          id="name"
-          placeholder="Your Name"
-          required
-        />
-        <input
-          type="text"
-          class="textbox"
-          placeholder="Email/ Phone"
-          id="contact"
-          required
-        />
-        <input
-          type="text"
-          class="textbox"
-          placeholder="Message"
-          id="message"
-          required
-        />
-        <button type="submit" class="button" onclick="handleForm()">
-          Send
-        </button>
-      </form>
+      <p>Let's work together and build something epic.</p>
       <div class="social-icons">
         <a
           href="https://www.linkedin.com/in/fasameer/"
@@ -338,17 +310,5 @@
       color1: 0xbae8e8,
       color2: 0x272343,
     });
-  </script>
-  <script>
-    function handleForm() {
-      var name = document.getElementById("name").value;
-      var contact = document.getElementById("contact").value;
-      var message = document.getElementById("message").value;
-      var body =
-        "Name: " + name + " | Contact: " + contact + " | Message: " + message;
-      window.open(
-        "mailto:write2sameerfa@gmail.com?subject=Hi Sameer!&body=" + body
-      );
-    }
   </script>
 </html>
