@@ -55,8 +55,12 @@
           ><i class="lni lni-envelope"></i
         ></a>
       </div>
+      <div class="nav">
+        <a href="#projects" class="button">Projects</a>
+        <a href="#articles" class="button">Articles</a>
+      </div>
     </div>
-    <div class="main">
+    <div class="main" id="projects">
       <h3>Opensource Projects</h3>
       <div class="projects">
         <div class="card">
@@ -205,7 +209,7 @@
         </div>
       </div>
     </div>
-    <div class="articles">
+    <div class="articles" id="articles">
       <h3>Publications</h3>
       <article>
         <h4>WebView Apps with Flutter</h4>
@@ -255,32 +259,33 @@
         >
       </article>
     </div>
-    <div id="bg2" class="hero">
+    <div class="main">
       <span class="name">
         <h3>Get in touch!</h3>
-        <p>Actions are louder than ideas.</p>
+        Actions are louder than ideas. Let's build something epic.
       </span>
-      <p>Let's work together and build something epic.</p>
       <div class="social-icons">
         <a
           href="https://www.linkedin.com/in/fasameer/"
-          class="icon"
+          class="icon2"
           target="_blank"
           ><i class="lni lni-linkedin-original"></i
         ></a>
-        <a href="https://github.com/sameerfa" class="icon" target="_blank"
+        <a href="https://github.com/sameerfa" class="icon2" target="_blank"
           ><i class="lni lni-github-original"></i
         ></a>
-        <a href="mailto:write2sameerfa@gmail.com" class="icon"
+        <a href="mailto:write2sameerfa@gmail.com" class="icon2"
           ><i class="lni lni-envelope"></i
         ></a>
       </div>
     </div>
+    <button onclick="topFunction()" id="myBtn" title="Go to top"><i class="lni lni-pointer-top"></i
+      ></button>
   </body>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r123/three.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/vanta/0.5.21/vanta.birds.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r121/three.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/vanta@latest/dist/vanta.globe.min.js"></script>
   <script>
-    VANTA.BIRDS({
+    VANTA.GLOBE({
       el: "#bg",
       mouseControls: true,
       touchControls: true,
@@ -288,27 +293,33 @@
       minHeight: 200.0,
       minWidth: 200.0,
       scale: 1.0,
-      scaleMobile: 1.0,
-      colorMode: "lerpGradient",
-      quantity: 5.0,
-      backgroundColor: 0xfffffe,
-      color1: 0xbae8e8,
-      color2: 0x272343,
+      scaleMobile: 0.3,
     });
-    VANTA.BIRDS({
-      el: "#bg2",
-      mouseControls: true,
-      touchControls: true,
-      gyroControls: true,
-      minHeight: 200.0,
-      minWidth: 200.0,
-      scale: 1.0,
-      scaleMobile: 1.0,
-      colorMode: "lerpGradient",
-      quantity: 4.0,
-      backgroundColor: 0xe3f6f5,
-      color1: 0xbae8e8,
-      color2: 0x272343,
-    });
+  </script>
+  <script>
+    //Get the button
+    var mybutton = document.getElementById("myBtn");
+
+    // When the user scrolls down 20px from the top of the document, show the button
+    window.onscroll = function () {
+      scrollFunction();
+    };
+
+    function scrollFunction() {
+      if (
+        document.body.scrollTop > 20 ||
+        document.documentElement.scrollTop > 20
+      ) {
+        mybutton.style.display = "block";
+      } else {
+        mybutton.style.display = "none";
+      }
+    }
+
+    // When the user clicks on the button, scroll to the top of the document
+    function topFunction() {
+      document.body.scrollTop = 0;
+      document.documentElement.scrollTop = 0;
+    }
   </script>
 </html>
